@@ -1,0 +1,48 @@
+INSERT INTO Classes VALUES('Bismarck', 'bb', 'Germany', 8, 15, 42000);
+INSERT INTO Classes VALUES('Kongo', 'bc', 'Japan', 8, 14, 32000);
+INSERT INTO Classes VALUES('North Carolina', 'bb', 'USA', 9, 16, 37000);
+INSERT INTO Classes VALUES('Renown', 'bc', 'Gt. Britain', 6, 15, 32000);
+INSERT INTO Classes VALUES('Revenge', 'bb', 'Gt. Britain', 8, 15, 29000);
+INSERT INTO Classes VALUES('Tennessee', 'bb', 'USA', 12, 14, 32000);
+INSERT INTO Classes VALUES('Yamato', 'bb', 'Japan', 9, 18, 65000);
+
+INSERT INTO Ships VALUES('California', 'Tennessee', 1921);
+INSERT INTO Ships VALUES('Haruna', 'Kongo', 1915);
+INSERT INTO Ships VALUES('Hiei', 'Kongo', 1914);
+INSERT INTO Ships VALUES('Iowa', 'Iowa', 1943);
+INSERT INTO Ships VALUES('Kirishima', 'Kongo', 1914);
+INSERT INTO Ships VALUES('Kongo', 'Kongo', 1913);
+INSERT INTO Ships VALUES('Missouri', 'Iowa', 1944);
+INSERT INTO Ships VALUES('Musashi', 'Yamato', 1942);
+INSERT INTO Ships VALUES('New Jersey', 'Iowa', 1943);
+INSERT INTO Ships VALUES('North Carolina', 'North Carolina', 1941);
+INSERT INTO Ships VALUES('Ramilles', 'Revenge', 1917); 
+INSERT INTO Ships VALUES('Renown', 'Renown', 1916); 
+INSERT INTO Ships VALUES('Repulse', 'Renown', 1916); 
+INSERT INTO Ships VALUES('Resolution', 'Revenge', 1916); 
+INSERT INTO Ships VALUES('Revenge', 'Revenge', 1916); 
+INSERT INTO Ships VALUES('Royal Oak', 'Revenge', 1916); 
+INSERT INTO Ships VALUES('Royal Sovereign', 'Revenge', 1916); 
+INSERT INTO Ships VALUES('Tennessee', 'Tennessee', 1920); 
+INSERT INTO Ships VALUES('Washington', 'North Carolina', 1941);
+INSERT INTO Ships VALUES('Wisconsin', 'Iowa', 1944); 
+INSERT INTO Ships VALUES('Yamato', 'Yamato', 1941);
+
+INSERT INTO Battles VALUES('North Atlantic', TO_DATE('27-May-1941', 'dd-Mon-yyyy'));
+INSERT INTO Battles VALUES('Guadalcanal', TO_DATE('15-Nov-1942', 'dd-Mon-yyyy'));
+INSERT INTO Battles VALUES('North Cape', TO_DATE('26-Dec-1943', 'dd-Mon-yyyy')); 
+INSERT INTO Battles VALUES('Surigao Strait', TO_DATE('25-Oct-1944', 'dd-Mon-yyyy'));
+
+INSERT INTO Outcomes VALUES('Bismarck', 'North Atlantic', 'sunk'); 
+INSERT INTO Outcomes VALUES('California', 'Surigao Strait', 'ok'); 
+INSERT INTO Outcomes VALUES('Duke of York', 'North Cape', 'ok'); 
+INSERT INTO Outcomes VALUES('Fuso', 'Surigao Strait', 'sunk'); 
+INSERT INTO Outcomes VALUES('Hood', 'North Atlantic', 'sunk'); 
+INSERT INTO Outcomes VALUES('King George V', 'North Atlantic', 'ok'); 
+INSERT INTO Outcomes VALUES('Kirishima', 'Guadalcanal', 'sunk'); 
+INSERT INTO Outcomes VALUES('Prince of Wales', 'North Atlantic', 'damaged');
+INSERT INTO Outcomes VALUES('Rodney', 'North Atlantic', 'ok'); 
+INSERT INTO Outcomes VALUES('Scharnhorst', 'North Cape', 'sunk'); 
+INSERT INTO Outcomes VALUES('South Dakota', 'Guadalcanal', 'ok'); 
+INSERT INTO Outcomes VALUES('West Virginia', 'Surigao Strait', 'ok'); 
+INSERT INTO Outcomes VALUES('Yamashiro', 'Surigao Strait', 'sunk'); 
