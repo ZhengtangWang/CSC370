@@ -1,0 +1,103 @@
+CSC 320 ASSIGNMENT 2
+ZHENGTANG WANG
+V00802086
+
+
+1.
+SELECT movie FROM starredin
+WHERE celeb = 'Tom Cruise'
+INTERSECT
+SELECT movie FROM starredin
+WHERE celeb LIKE '%Pen% %C%';
+
+
+2.
+SELECT DISTINCT celeb FROM starredin
+WHERE movie IN (SELECT movie FROM starredin WHERE celeb = 'Nicolas Cage')
+MINUS
+SELECT celeb FROM starredin
+WHERE celeb = 'Nicolas Cage';
+
+
+3.
+SELECT DISTINCT celeb1 AS costar, movie
+FROM relationships JOIN starredin ON relationships.celeb1 = starredin.celeb
+INTERSECT
+SELECT DISTINCT celeb1 AS costar, movie
+FROM relationships, starredin
+WHERE celeb2 = 'Tom Cruise' AND movie IN (SELECT movie FROM starredin WHERE celeb = 'Tom Cruise');
+
+
+4.
+SELECT DISTINCT celeb1, celeb2, movie
+FROM relationships, starredin
+WHERE relationships.celeb1 = starredin.celeb
+INTERSECT
+SELECT DISTINCT celeb1, celeb2, movie
+FROM relationships, starredin
+WHERE relationships.celeb2 = starredin.celeb
+ORDER BY movie;
+
+
+5.
+SELECT celeb, COUNT(DISTINCT movie) AS numofmovie
+FROM starredin
+GROUP BY celeb HAVING COUNT(DISTINCT movie)>=10
+ORDER BY COUNT(DISTINCT movie) DESC;
+
+
+6.
+CREATE VIEW celeb1Rels AS
+SELECT celeb1 AS A, celeb2 AS B
+FROM relationships;
+
+CREATE VIEW celeb2Rels AS
+SELECT celeb1 AS B, celeb2 AS C
+FROM relationships;
+
+SELECT DISTINCT A AS celeb1, C AS celeb2, B AS celeb3
+FROM celeb1Rels NATURAL JOIN celeb2Rels
+WHERE A <> C
+ORDER BY celeb3;
+
+
+7.
+CREATE VIEW celebMovieCounts AS
+SELECT celeb, COUNT(DISTINCT movie) AS n
+FROM enemies JOIN starredin ON celeb1 = celeb
+GROUP BY celeb;
+
+SELECT DISTINCT celeb1, celeb2, X.n AS n1, Y.n AS n2
+FROM enemies, celebMovieCounts X, celebMovieCounts Y
+WHERE celeb1 = X.celeb AND celeb2 = Y.celeb;
+
+
+8.
+SELECT celeb, COUNT(DISTINCT album) AS numofalbum
+FROM releases
+GROUP BY celeb HAVING COUNT(DISTINCT album)>=2
+ORDER BY COUNT(DISTINCT album) DESC;
+
+
+9.
+SELECT celeb
+FROM releases NATURAL JOIN starredin
+GROUP BY celeb
+ORDER BY celeb;
+
+
+10.
+SELECT celeb, COUNT(DISTINCT movie) AS number_of_movies, COUNT(DISTINCT album) AS number_of_albums
+FROM starredin NATURAL JOIN releases
+GROUP BY celeb;
+
+
+11.
+SELECT DISTINCT celeb1, celeb2, started
+FROM relationships
+WHERE started IN (SELECT MIN(started) FROM relationships)
+UNION
+SELECT DISTINCT celeb1, celeb2, started
+FROM relationships
+WHERE started IN (SELECT MAX(started) FROM relationships)
+
